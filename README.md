@@ -178,4 +178,3 @@ The `Query variables` pane accepts a JSON object, and the properties should matc
   "fullname": "Bruce Wayne"
 }
 ```
-
