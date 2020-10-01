@@ -171,6 +171,32 @@ app.get('/messages/:id', (req, res) => {
   return res.json(foundMessage);
 });
 
+app.post('/messages', (req, res) => {
+  const { from, to, message } = req.body;
+  if (!from || !to || !message) {
+    return res.status(400).send('Missed arguments');
+  }
+
+  const fromUser = users.find(user => user.id === from);
+  if (!fromUser) {
+    return res.status(400).send('Sender not found');
+  }
+
+  const toUser = users.find(user => user.id === to);
+  if (!toUser) {
+    return res.status(400).send('Recipient not found');
+  }
+
+  const newMessage = {
+    id: new Date().getTime(),
+    from, to, message,
+    created: new Date(),
+  };
+  messages.push(newMessage);
+
+  res.json(newMessage);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
