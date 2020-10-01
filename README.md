@@ -21,6 +21,8 @@ Follow these steps:
 
 You will now have an express web server running on `http://localhost:3000` and a graphql server running on `http://localhost:4000`
 
+To simplify the calls to the REST API I recommend you install [postman](https://www.postman.com/downloads/)
+
 ## REST API
 
 The express web server is acting as a REST API service, and has been setup with some basic functionality. Available endpoints:
