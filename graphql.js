@@ -9,7 +9,7 @@ const messageServer = 'http://localhost:3000'; // our api
 
 const typeDefs = `
   type User {
-    id: Int!
+    id: ID!
     username: String!
     fullname: String!
     created: String!
@@ -18,10 +18,10 @@ const typeDefs = `
   }
 
   type Message {
-    id: Int!
-    from: Int!
+    id: ID!
+    from: ID!
     fromUser: User!
-    to: Int!
+    to: ID!
     toUser: User!
     message: String!
     created: String!
@@ -33,6 +33,11 @@ const typeDefs = `
     Messages: [Message]
     User(id: ID!): User
     Users: [User]
+  }
+
+  type Mutation {
+    createUser(username: String!, fullname: String!): User
+    createMessage(sender: ID!, recipient: ID!, message: String!): Message
   }
 `;
 
@@ -77,6 +82,22 @@ const resolvers = {
       const received = result.data.filter(message => message.to !== user.id) || [];
       return received;
     }
+  },
+  Mutation: {
+    createUser: async (_, { username, fullname }) => {
+      const newUser = await axios.post(`${messageServer}/users`, {
+        username, fullname
+      });
+      return newUser.data;
+    },
+    createMessage: async (_, { sender, recipient, message }) => {
+      const newMessage = await axios.post(`${messageServer}/messages`, {
+        from: sender,
+        to: recipient,
+        message,
+      });
+      return newMessage.data;
+    },
   },
 };
 

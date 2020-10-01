@@ -89,6 +89,8 @@ Fields which refer to a custom type, or a list, will need their own curly braces
 
 ### Example queries
 
+*Learn more about queries here [graphql.org/learn/queries/](https://graphql.org/learn/queries/)*
+
 Get all users:
 ```
 {
@@ -150,4 +152,28 @@ Nesting more and more fields in this way is referred to as complexity, and can b
 
 Our demo GraphQL service is very basic, but as it expands you'd definitely want to consider implementation of a [dataloader](https://github.com/graphql/dataloader). In effect these act as request specific caches that take what is returned from the resolvers and store that against a unique id. Any of the other resolvers involved in that query that reference that same data endpoint, would then be supplied from the stored value. This means that each unique query would only be performed once, and is much more performant.
 
+### Mutations
+
+Mutations are special queries designed to accept data and "mutate" server side data. This is easiest imagined as queries being for reading data, mutations are for writing or updating data.
+
+Here is an example for creating a new user:
+```
+mutation CreateANewUser($username: String!, $fullname: String!) {
+  createUser(username: $username, fullname: $fullname) {
+    id
+    username
+    fullname
+    created
+  }
+}
+```
+Notice how we start this with `mutation` instead of open curly braces, this is essentially defining a function call with arguments. Arguments are supplied as variables... back in GraphiQL, down the bottom left, click `Query variables`.
+
+The `Query variables` pane accepts a JSON object, and the properties should match those defined in the mutation. So to peform the above mutation, paste in the following JSON:
+```
+{
+  "username": "batman",
+  "fullname": "Bruce Wayne"
+}
+```
 
