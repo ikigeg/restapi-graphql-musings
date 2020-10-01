@@ -41,7 +41,7 @@ In essence REST is an agreed convention, built on top of standard HTTP protocols
 
 ### Our dummy REST API
 
-The express web server is acting as a REST API service, and has been setup with some basic functionality. Available endpoints:
+The express web server is acting as a REST API service, and has been setup with some basic functionality. Available endpoints (all expecting or responding with JSON):
 
 - GET   http://localhost:3000/users - list all users
 - GET   http://localhost:3000/users/:id - get a specific user
