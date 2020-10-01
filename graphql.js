@@ -15,6 +15,12 @@ const typeDefs = `
     created: String!
     sent: [Message]
     received: [Message]
+    repos: [Repo]
+  }
+
+  type Repo {
+    id: ID!
+    name: String!
   }
 
   type Message {
@@ -62,7 +68,7 @@ const resolvers = {
     },
   },
   Message: {
-    fromUser: async (message) => {
+    fromUser: async (message, { id }) => {
       const result = await axios.get(`${messageServer}/users/${message.from}`);
       return result.data;
     },
@@ -81,6 +87,10 @@ const resolvers = {
       const result = await axios.get(`${messageServer}/messages`);
       const received = result.data.filter(message => message.to !== user.id) || [];
       return received;
+    },
+    repos: async (user) => {
+      const result = await axios.get(`https://api.github.com/users/${user.username}/repos`);
+      return result.data;
     }
   },
   Mutation: {

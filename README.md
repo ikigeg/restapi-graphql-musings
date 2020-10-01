@@ -144,6 +144,19 @@ Using aliases:
 }
 ```
 
+Example of user query with second api call to github:
+```
+{
+  User(id: 1) {
+    username
+    repos {
+      id
+      name
+		}
+  }
+}
+```
+
 Things get interesting when you nest queryable fields from the schema, this is an example chain:
 
 ```
