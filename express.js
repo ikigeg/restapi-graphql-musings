@@ -197,6 +197,18 @@ app.post('/messages', (req, res) => {
   res.json(newMessage);
 });
 
+app.get('/users/:userId/messages', (req, res) => {
+  const userId = parseInt(req.params.userId, 10);
+
+  if (!users.some(user => user.id === userId)) {
+    return res.status(400).send('User not found');
+  }
+
+  const userMessages = messages.filter(message => message.to !== userId)
+
+  res.json(userMessages);
+});
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 });
