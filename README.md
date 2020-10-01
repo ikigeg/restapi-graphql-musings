@@ -27,6 +27,20 @@ To simplify the calls to the REST API I recommend you install [postman](https://
 
 ## REST API
 
+### What is REST?
+
+> Representational state transfer
+
+In essence REST is an agreed convention, built on top of standard HTTP protocols, to access and manipulate data held on remote services. Whenever you visit a webpage your browser is making a GET request to a web server, the web server is then responding with the requested HTML. This is just one of many possible REST methods, here is a quick list:
+
+- GET fetch a resource
+- POST create a new resource
+- PUT replace an existing resource
+- PATCH update an existing resource
+- DELETE deletes a resource
+
+### Our dummy REST API
+
 The express web server is acting as a REST API service, and has been setup with some basic functionality. Available endpoints:
 
 - GET   http://localhost:3000/users - list all users
