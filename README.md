@@ -18,8 +18,7 @@ This is a quick repo to demonstrate some of the principles of REST, and an explo
 Follow these steps:
 
 - `npm i`
-- `npm run express`
-- In a new terminal `npm run graphql`
+- `npm start`
 
 You will now have an express web server running on `http://localhost:3000` and a graphql server running on `http://localhost:4000`
 
