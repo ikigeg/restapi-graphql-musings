@@ -31,7 +31,7 @@ To simplify the calls to the REST API I recommend you install [postman](https://
 
 > Representational state transfer
 
-In essence REST is an agreed convention, built on top of standard HTTP protocols, to access and manipulate data held on remote services. Whenever you visit a webpage your browser is making a GET request to a web server, the web server is then responding with the requested HTML. This is just one of many possible REST methods, here is a quick list:
+In essence REST is an agreed convention, built on top of standard HTTP protocols, to access and manipulate data held on remote services. Whenever you visit a webpage your browser is making a GET request to a web server, the web server is then responding with the requested HTML. This is just one of many possible REST methods, here is a quick list of the main ones you'll encounter:
 
 - GET fetch a resource
 - POST create a new resource
