@@ -10,6 +10,8 @@ This is a quick repo to demonstrate some of the principles of REST, and an explo
 - [GraphiQL playground](https://github.com/graphql/graphiql)
 - [GraphQL executable schemas](https://www.graphql-tools.com/docs/generate-schema)
 - [Useful reference for creating a GraphQL server](https://marmelab.com/blog/2017/09/06/dive-into-graphql-part-iii-building-a-graphql-server-with-nodejs.html)
+- [Express](http://expressjs.com/en/4x/api.html)
+- [Axios](https://www.npmjs.com/package/axios)
 
 ## Running the example services
 
