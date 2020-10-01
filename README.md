@@ -45,6 +45,8 @@ The interface is split into 2 primary panes, the left is where you create your q
 
 ### What is GraphQL?
 
+GraphQL was originally developed by Facebook, and released in 2015.
+
 > GraphQL is a query language for your API, and a server-side runtime for executing queries by using a type system you define for your data. GraphQL isn't tied to any specific database or storage engine and is instead backed by your existing code and data.
 
 > A GraphQL service is created by defining types and fields on those types, then providing functions for each field on each type.
@@ -108,6 +110,20 @@ Get a specific user:
 ```
 
 The same syntax as the above can be used for Messages.
+
+Using aliases:
+```
+{
+  user1: User(id: 1) {
+    id
+    fullname
+  }
+  user2: User(id: 2) {
+    id
+    fullname
+  }
+}
+```
 
 Things get interesting when you nest queryable fields from the schema, this is an example chain:
 
